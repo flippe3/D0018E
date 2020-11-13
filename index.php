@@ -15,12 +15,13 @@ if ($dbconnect->connect_error) {
 }
 
 ?>
-
-<table border="1" align="center">
+<h2>Products table:</h2>
+<table border="1" align="left">
 <tr>
   <td>Title</td>
-  <td>Price</td>
-  <td>Author</td>
+  <td>Price (kr)</td>
+  <td>Author(s)</td>
+  <td>ISBN</td>
 </tr>
 
 <?php
@@ -34,8 +35,8 @@ while ($row = mysqli_fetch_array($query)) {
     <td>{$row['Title']}</td>
     <td>{$row['Price']}</td>
     <td>{$row['Author']}</td>
+    <td>{$row['ISBN']}</td>
    </tr>\n";
-
 }
 
 ?>
