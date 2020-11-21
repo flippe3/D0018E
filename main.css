@@ -1,0 +1,93 @@
+@font-face
+{
+    font-family: "header";
+    src: url("fonts/header_font.ttf");
+}
+@font-face
+{
+    font-family: "titles";
+    src: url("fonts/unbutton.ttf");
+}
+@font-face
+{
+    font-family: "ch";
+    src: url("fonts/ch.ttf");
+}
+#wrapper
+{
+    background-color: #42C1F0;
+    min-width:100%;
+    min-height: 100%;
+    margin: 0px;
+}
+header{
+    color: #FC5130;
+    font-size:100px;
+    font-family: "header";
+    background-color: #303036;
+    height: 120px;
+    width: 80%;
+    text-align: center;
+    margin: 0px;
+    float: left;
+}
+#miniheader{
+    height: 120px;
+    width: 20%;
+    float: left;
+    background-color: #98959B;
+}
+h2 {
+    color: #050401;
+    margin: 0px;
+    font-family: "titles";
+    font-size: 50px;
+    margin-left: 20px;
+}
+body{
+    margin: 0px;
+}
+
+/* Table thingies */
+table{
+    margin: 1% 1% 0% 1%;
+    background-color: #FC5130;
+    width: 98%;
+    height: 60%;
+    float: left;
+}
+#head_column{
+    font-size: 35px;
+}
+#entries{
+    background-color: #FE8472;
+    font-size: 25px;
+}
+
+/* button thingies */
+#btn_add_cart{
+    width: 96%;
+    margin: 2% 2% 0% 2%;
+    background-color: #FECBC2;
+    border: 5px solid #000;
+    border-radius: 5px;
+    font-size:25px;
+}
+button:hover {
+    opacity: 0.8;
+    color: #FFF; 
+}
+#btn_miniheader{
+    font-size: 25px;
+    margin: 2% 2% 0% 2%;
+    font-family: "ch"
+}
+
+/* image stuff */
+#table_image{
+    size: 5%;
+    border-radius: 8px;
+    width: 50%;
+    display: block;
+    margin: 5px auto 5px auto;
+}
