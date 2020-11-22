@@ -53,8 +53,11 @@ table{
     margin: 1% 1% 0% 1%;
     background-color: #FC5130;
     width: 98%;
-    height: 60%;
+    max-height: 80%;
     float: left;
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
 }
 #head_column{
     font-size: 35px;
@@ -80,14 +83,14 @@ button:hover {
 #btn_miniheader{
     font-size: 25px;
     margin: 2% 2% 0% 2%;
-    font-family: "ch"
+    font-family: "ch";
 }
 
 /* image stuff */
 #table_image{
     size: 5%;
     border-radius: 8px;
-    width: 50%;
+    max-width: 50%;
     display: block;
     margin: 5px auto 5px auto;
 }

@@ -27,6 +27,7 @@
       }
 
       ?>
+      
       <table border="1" align="left">
 	<tr id="head_column">
 	  <td>Image</td>
