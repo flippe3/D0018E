@@ -1,26 +1,31 @@
-<?php
-include "config.php";
-
-if(isset($_POST['but_submit'])){
-
-    $uname = mysqli_real_escape_string($con,$_POST['txt_uname']);
-    $password = mysqli_real_escape_string($con,$_POST['txt_pwd']);
-
-    if ($uname != "" && $password != ""){
-
-        $sql_query = "select count(*) as cntUser from users where username='".$uname."' and password='".$password."'";
-        $result = mysqli_query($con,$sql_query);
-        $row = mysqli_fetch_array($result);
-
-        $count = $row['cntUser'];
-
-        if($count > 0){
-            $_SESSION['uname'] = $uname;
-            header('Location: home.php');
-        }else{
-            echo "Invalid username and password";
-        }
-
-    }
-
-}
+<?php include('server.php') ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration system PHP and MySQL</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="header">
+   <h2>Login</h2>
+  </div>
+  
+  <form method="post" action="login.php">
+   <?php include('errors.php'); ?>
+   <div class="input-group">
+    <label>Username</label>
+    <input type="text" name="username" >
+   </div>
+   <div class="input-group">
+    <label>Password</label>
+    <input type="password" name="password">
+   </div>
+   <div class="input-group">
+    <button type="submit" class="btn" name="login_user">Login</button>
+   </div>
+   <p>
+    Not yet a member? <a href="signup.php">Sign up</a>
+   </p>
+  </form>
+</body>
+</html>

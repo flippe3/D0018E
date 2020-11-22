@@ -3,13 +3,11 @@
   <head>
     <link rel="stylesheet" href="main.css">
   </head>
-  <header>
-    Amazon V2
-  </header>
+  <header>Amazon V2</header>
   <div id="miniheader">
     <button id='btn_miniheader' onclick="location.href='login.php';" type='button'>Login</button>
     <button id='btn_miniheader' onclick="location.href='signup.php';" type='button'>Sign up</button>
-    <button id='btn_miniheader' onclick="location.href='cart.php';" type='button'>Go to cart</button>
+    <button id='btn_miniheader' onclick="location.href='admin.php';" type='button'>Go to cart</button>
   </div>
   <body>
     <div id="wrapper">
@@ -21,7 +19,6 @@
        $db = "TESTDATABASE";
 
        $dbconnect=mysqli_connect($hostname,$username,$password,$db);
-
        if ($dbconnect->connect_error) {
       die("Database connection failed: " . $dbconnect->connect_error);
       }
