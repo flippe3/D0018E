@@ -12,9 +12,11 @@ $author = mysqli_real_escape_string($link, $_REQUEST['author']);
 $title = mysqli_real_escape_string($link, $_REQUEST['title']);
 $price = mysqli_real_escape_string($link, $_REQUEST['price']);
 $bookquantity = mysqli_real_escape_string($link, $_REQUEST['bookquantity']);
+$releaseyear = mysqli_real_escape_string($link, $_REQUEST['releaseyear']);
+$summary = mysqli_real_escape_string($link, $_REQUEST['summary']);
 
 // Attempt insert query execution
-$sql = "UPDATE Products author='$author', title='$title', price='$price' WHERE isbn='$isbn'";
+$sql = "UPDATE Products SET author='$author', title='$title', price='$price', releaseyear='$releaseyear', summary='$summary' WHERE isbn='$isbn'";
 if(mysqli_query($link, $sql)){
     echo "Records added successfully.";
 } else{

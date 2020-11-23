@@ -33,6 +33,8 @@
 	  <td>Author</td>
 	  <td>ISBN</td>
 	  <td>Book Quantity</td>
+	  <td>Year</td>
+	  <td>Summary</td>
 	  <td>Add to cart</td>
 	</tr>
 
@@ -50,6 +52,8 @@
 	<td>{$row['author']}</td>
 	<td>{$row['isbn']}</td>
 	<td>{$row['bookquantity']}</td>
+	<td>{$row['releaseyear']}</td>
+	<td>{$row['summary']}</td>
 	<td><button id='btn_add_cart' type='button'>Add to cart</button></td>
         </tr>\n";}?>
       </table>

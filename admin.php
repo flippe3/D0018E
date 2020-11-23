@@ -31,6 +31,14 @@
         <label for="bookquantity">Book Quanitty</label>
         <input type="text" name="bookquantity" id="bookquantity">
     </p>
+    <p>
+        <label for="releaseyear">Release Year</label>
+        <input type="text" name="releaseyear" id="releaseyear">
+    </p>
+    <p>
+        <label for="summary">Summary</label>
+        <input type="text" name="summary" id="summary">
+    </p>
     </div>
     <input type="submit" value="Submit" class='submit_btn'>
 </form>
@@ -72,6 +80,14 @@
     <p>
         <label for="bookquantity">Book Quantity</label>
         <input type="text" name="bookquantity" id="bookquantity">
+    </p>
+    <p>
+        <label for="releaseyear">Release Year</label>
+        <input type="text" name="releaseyear" id="releaseyear">
+    </p>
+    <p>
+        <label for="summary">Summary</label>
+        <input type="text" name="summary" id="summary">
     </p>
     </div>
     <input type="submit" value="Submit" class='submit_btn'>
