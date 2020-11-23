@@ -28,7 +28,7 @@
         <input type="text" name="price" id="price">
     </p>
     <p>
-        <label for="bookquantity">Book Quanitty</label>
+        <label for="bookquantity">Book Quantity</label>
         <input type="text" name="bookquantity" id="bookquantity">
     </p>
     <p>
