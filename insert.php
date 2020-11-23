@@ -14,9 +14,10 @@ $price = mysqli_real_escape_string($link, $_REQUEST['price']);
 $bookquantity = mysqli_real_escape_string($link, $_REQUEST['bookquantity']);
 $releaseyear = mysqli_real_escape_string($link, $_REQUEST['releaseyear']);
 $summary = mysqli_real_escape_string($link, $_REQUEST['summary']);
+$imageurl = mysqli_real_escape_string($link, $_REQUEST['imgurl']);
 
 // Attempt insert query execution
-$sql = "INSERT INTO Products (isbn, author, title, price, bookquantity, releaseyear, summary) VALUES ('$isbn', '$author', '$title', '$price', '$bookquantity', '$releaseyear', '$summary')";
+$sql = "INSERT INTO Products (isbn, author, title, price, bookquantity, releaseyear, summary, imgurl) VALUES ('$isbn', '$author', '$title', '$price', '$bookquantity', '$releaseyear', '$summary', '$imageurl')";
 if(mysqli_query($link, $sql)){
     echo "Records added successfully.";
 } else{

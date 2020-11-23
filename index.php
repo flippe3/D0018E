@@ -44,9 +44,10 @@
 	 or die (mysqli_error($dbconnect));
 
 	 while ($row = mysqli_fetch_array($query)) {
-	 echo
+
+     echo
 	 "<tr id='entries'>
-	<td><img id='table_image' src='images/asimov.jpg'></td>
+	<td><img id='table_image' src='.$row'imgurl'.'></td>
 	<td>{$row['title']}</td>
 	<td>{$row['price']} kr</td>
 	<td>{$row['author']}</td>
@@ -55,7 +56,8 @@
 	<td>{$row['releaseyear']}</td>
 	<td>{$row['summary']}</td>
 	<td><button id='btn_add_cart' type='button'>Add to cart</button></td>
-        </tr>\n";}?>
+        </tr>\n";}
+      ?>
       </table>
     </div>
   </body>

@@ -39,6 +39,10 @@
         <label for="summary">Summary</label>
         <input type="text" name="summary" id="summary">
     </p>
+    <p>
+        <label for="imgurl">Image Url</label>
+        <input type="text" name="imgurl" id="imgurl">
+    </p>
     </div>
     <input type="submit" value="Submit" class='submit_btn'>
 </form>
@@ -89,7 +93,12 @@
         <label for="summary">Summary</label>
         <input type="text" name="summary" id="summary">
     </p>
-    </div>
+    <p>
+        <label for="imgurl">Image Url</label>
+        <input type="text" name="imgurl" id="imgurl">
+    </p>
+
+     </div>
     <input type="submit" value="Submit" class='submit_btn'>
 </form>
 
