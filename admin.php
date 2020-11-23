@@ -12,24 +12,24 @@
 <form action="insert.php" method="post">
     <div class='input-group'>
     <p>
-        <label for="ISBN">ISBN</label>
-        <input type="text" name="ISBN" id="ISBN">
+        <label for="isbn">ISBN</label>
+        <input type="text" name="isbn" id="isbn">
     </p>
     <p>
-        <label for="ProductNr">ProductNr</label>
-        <input type="text" name="ProductNr" id="ProductNr">
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author">
     </p>
     <p>
-        <label for="Author">Author</label>
-        <input type="text" name="Author" id="Author">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
     </p>
     <p>
-        <label for="Title">Title</label>
-        <input type="text" name="Title" id="Title">
+        <label for="price">Price</label>
+        <input type="text" name="price" id="price">
     </p>
     <p>
-        <label for="Price">Price</label>
-        <input type="text" name="Price" id="Price">
+        <label for="bookquantity">Book Quanitty</label>
+        <input type="text" name="bookquantity" id="bookquantity">
     </p>
     </div>
     <input type="submit" value="Submit" class='submit_btn'>
@@ -41,8 +41,8 @@
 <form action="remove.php" method="post">
     <div class='input-group'>
     <p>
-        <label for="ISBN">ISBN</label>
-        <input type="text" name="ISBN" id="ISBN">
+        <label for="isbn">ISBN</label>
+        <input type="text" name="isbn" id="isbn">
     </p>
     </div>
     <input type="submit" value="Submit" class='submit_btn'>
@@ -54,24 +54,24 @@
 <form action="update.php" method="post">
     <div class='input-group'>
     <p>
-        <label for="ISBN">ISBN</label>
-        <input type="text" name="ISBN" id="ISBN">
+        <label for="isbn">ISBN</label>
+        <input type="text" name="isbn" id="isbn">
     </p>
     <p>
-        <label for="ProductNr">ProductNr</label>
-        <input type="text" name="ProductNr" id="ProductNr">
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author">
     </p>
     <p>
-        <label for="Author">Author</label>
-        <input type="text" name="Author" id="Author">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
     </p>
     <p>
-        <label for="Title">Title</label>
-        <input type="text" name="Title" id="Title">
+        <label for="price">Price</label>
+        <input type="text" name="price" id="price">
     </p>
     <p>
-        <label for="Price">Price</label>
-        <input type="text" name="Price" id="Price">
+        <label for="bookquantity">Book Quantity</label>
+        <input type="text" name="bookquantity" id="bookquantity">
     </p>
     </div>
     <input type="submit" value="Submit" class='submit_btn'>

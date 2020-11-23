@@ -60,11 +60,11 @@ table{
     text-align: center;
 }
 #head_column{
-    font-size: 35px;
+    font-size: 25px;
 }
 #entries{
     background-color: #FE8472;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 /* button thingies */

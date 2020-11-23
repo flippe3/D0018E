@@ -16,7 +16,7 @@
        $hostname = "localhost";
        $username = "root";
        $password = "hackerman";
-       $db = "TESTDATABASE";
+       $db = "ecommerce";
 
        $dbconnect=mysqli_connect($hostname,$username,$password,$db);
        if ($dbconnect->connect_error) {
@@ -32,6 +32,7 @@
 	  <td>Price</td>
 	  <td>Author</td>
 	  <td>ISBN</td>
+	  <td>Book Quantity</td>
 	  <td>Add to cart</td>
 	</tr>
 
@@ -44,10 +45,11 @@
 	 echo
 	 "<tr id='entries'>
 	<td><img id='table_image' src='images/asimov.jpg'></td>
-	<td>{$row['Title']}</td>
-	<td>{$row['Price']} kr</td>
-	<td>{$row['Author']}</td>
-	<td>{$row['ISBN']}</td>
+	<td>{$row['title']}</td>
+	<td>{$row['price']} kr</td>
+	<td>{$row['author']}</td>
+	<td>{$row['isbn']}</td>
+	<td>{$row['bookquantity']}</td>
 	<td><button id='btn_add_cart' type='button'>Add to cart</button></td>
         </tr>\n";}?>
       </table>

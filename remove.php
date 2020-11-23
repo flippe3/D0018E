@@ -1,5 +1,5 @@
 <?php
-$link = mysqli_connect("localhost", "root", "hackerman", "TESTDATABASE");
+$link = mysqli_connect("localhost", "root", "hackerman", "ecommerce");
  
 // Check connection
 if($link === false){
@@ -7,11 +7,7 @@ if($link === false){
 }
  
 // Escape user inputs for security
-$isbn = mysqli_real_escape_string($link, $_REQUEST['ISBN']);
-$productnr = mysqli_real_escape_string($link, $_REQUEST['ProductNr']);
-$author = mysqli_real_escape_string($link, $_REQUEST['Author']);
-$title = mysqli_real_escape_string($link, $_REQUEST['Title']);
-$price = mysqli_real_escape_string($link, $_REQUEST['Price']);
+$isbn = mysqli_real_escape_string($link, $_REQUEST['isbn']);
 
 // Attempt insert query execution
 $sql = "DELETE FROM Products WHERE ISBN='$isbn'";

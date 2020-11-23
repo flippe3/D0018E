@@ -1,5 +1,5 @@
 <?php
-$link = mysqli_connect("localhost", "root", "hackerman", "TESTDATABASE");
+$link = mysqli_connect("localhost", "root", "hackerman", "ecommerce");
  
 // Check connection
 if($link === false){
@@ -7,14 +7,14 @@ if($link === false){
 }
  
 // Escape user inputs for security
-$isbn = mysqli_real_escape_string($link, $_REQUEST['ISBN']);
-$productnr = mysqli_real_escape_string($link, $_REQUEST['ProductNr']);
-$author = mysqli_real_escape_string($link, $_REQUEST['Author']);
-$title = mysqli_real_escape_string($link, $_REQUEST['Title']);
-$price = mysqli_real_escape_string($link, $_REQUEST['Price']);
+$isbn = mysqli_real_escape_string($link, $_REQUEST['isbn']);
+$author = mysqli_real_escape_string($link, $_REQUEST['author']);
+$title = mysqli_real_escape_string($link, $_REQUEST['title']);
+$price = mysqli_real_escape_string($link, $_REQUEST['price']);
+$bookquantity = mysqli_real_escape_string($link, $_REQUEST['bookquantity']);
 
 // Attempt insert query execution
-$sql = "UPDATE Products set ProductNr='$productnr', Author='$author', Title='$title', Price='$price' WHERE ISBN='$isbn'";
+$sql = "UPDATE Products author='$author', title='$title', price='$price' WHERE isbn='$isbn'";
 if(mysqli_query($link, $sql)){
     echo "Records added successfully.";
 } else{
