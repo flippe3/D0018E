@@ -44,10 +44,13 @@
 	 or die (mysqli_error($dbconnect));
 
 	 while ($row = mysqli_fetch_array($query)) {
-
+         $imageurl = "images/{$row['imgurl']}";
+         if ($imageurl== "images/"){
+             $imageurl = "images/default.jpg";
+         }
      echo
 	 "<tr id='entries'>
-	<td><img id='table_image' src='.$row'imgurl'.'></td>
+	<td><img id='table_image' src=$imageurl></td>
 	<td>{$row['title']}</td>
 	<td>{$row['price']} kr</td>
 	<td>{$row['author']}</td>
