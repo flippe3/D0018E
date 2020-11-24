@@ -14,7 +14,8 @@ $password = mysqli_real_escape_string($link, $_REQUEST['password']);
 $sql = "SELECT password FROM Admins WHERE email='$email'"; 
 $query = mysqli_query($link, $sql) or die(mysqli_error($link));
 $pass = mysqli_fetch_assoc($query); 
-if($pass['password'] == $password){
+
+if($pass['password'] == $password && $password != ''){
     echo '<script>alert("Well done hackerboy");window.location.href="1337.php"</script>';
 }
 else{

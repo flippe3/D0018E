@@ -14,7 +14,7 @@ $password = mysqli_real_escape_string($link, $_REQUEST['password']);
 $sql = "SELECT password FROM Customers WHERE email='$email'"; 
 $query = mysqli_query($link, $sql) or die(mysqli_error($link));
 $pass = mysqli_fetch_assoc($query); 
-if($pass['password'] == $password){
+if($pass['password'] == $password && $password != ''){
     echo '<script>alert("Login Successful");window.location.href="index.php"</script>';
 }
 else{
