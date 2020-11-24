@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" href="main.css">
   </head>
-  <header>Amazon V2</header>
+  <a href='index.php'><header>Amazon V2</header></a>
   <div id="miniheader">
     <button id='btn_miniheader' onclick="location.href='login.php';" type='button'>Login</button>
     <button id='btn_miniheader' onclick="location.href='signup.php';" type='button'>Sign up</button>
