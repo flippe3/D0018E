@@ -10,12 +10,8 @@
    <h2>Sign Up</h2>
   </div>
  
-  <form method="post" action="register.php">
+  <form method="post" action="create_account.php">
    <?php include('errors.php'); ?>
-   <div class="input-group">
-     <label>Username</label>
-     <input type="text" name="username" value="<?php echo $username; ?>">
-   </div>
    <div class="input-group">
      <label>Email</label>
      <input type="email" name="email" value="<?php echo $email; ?>">
@@ -29,7 +25,7 @@
      <input type="password" name="password_2">
    </div>
    <div class="input-group">
-     <button type="submit" class="btn" name="reg_user">Register</button>
+     <button type="submit" class="btn" name="reg_user">Sign Up</button>
    </div>
    <p>
     Already a member? <a href="login.php">Login</a>

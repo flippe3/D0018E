@@ -7,7 +7,7 @@
   <div id="miniheader">
     <button id='btn_miniheader' onclick="location.href='login.php';" type='button'>Login</button>
     <button id='btn_miniheader' onclick="location.href='signup.php';" type='button'>Sign up</button>
-    <button id='btn_miniheader' onclick="location.href='admin.php';" type='button'>Go to cart</button>
+    <button id='btn_miniheader' onclick="location.href='admin_login.php';" type='button'>Go to cart</button>
   </div>
   <body>
     <div id="wrapper">
