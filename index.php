@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <a href='index.php'><header>Amazon V2</header></a>
   <div id="miniheader">
