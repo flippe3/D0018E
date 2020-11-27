@@ -1,17 +1,17 @@
 @font-face
 {
     font-family: "header";
-    src: url("fonts/header_font.ttf");
+    src: url("../fonts/header_font.ttf");
 }
 @font-face
 {
     font-family: "titles";
-    src: url("fonts/unbutton.ttf");
+    src: url("../fonts/unbutton.ttf");
 }
 @font-face
 {
     font-family: "ch";
-    src: url("fonts/ch.ttf");
+    src: url("../fonts/ch.ttf");
 }
 #wrapper
 {
