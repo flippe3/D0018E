@@ -12,7 +12,7 @@ $isbn = mysqli_real_escape_string($link, $_REQUEST['isbn']);
 // Attempt insert query execution
 $sql = "DELETE FROM Products WHERE ISBN='$isbn'";
 if(mysqli_query($link, $sql)){
-    echo "Records added successfully.";
+    echo "Records removed successfully.";
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }

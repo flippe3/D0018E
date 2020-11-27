@@ -9,7 +9,7 @@
 <div class="header">
    <h2>Add Product</h2>
 </div>
-<form action="insert.php" method="post">
+<form action="server/insert.php" method="post">
     <div class='input-group'>
     <p>
         <label for="isbn">ISBN</label>
@@ -50,7 +50,7 @@
 <div class="header">
    <h2>Remove Product</h2>
 </div>
-<form action="remove.php" method="post">
+<form action="server/remove.php" method="post">
     <div class='input-group'>
     <p>
         <label for="isbn">ISBN</label>
@@ -63,7 +63,7 @@
 <div class="header">
    <h2>Change Product</h2>
 </div>
-<form action="update.php" method="post">
+<form action="server/update.php" method="post">
     <div class='input-group'>
     <p>
         <label for="isbn">ISBN</label>

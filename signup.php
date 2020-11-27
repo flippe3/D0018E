@@ -9,7 +9,7 @@
    <h2>Sign Up</h2>
   </div>
  
-  <form method="post" action="create_account.php">
+  <form method="post" action="server/create_account.php">
    <?php include('errors.php'); ?>
    <div class="input-group">
      <label>Email</label>

@@ -26,11 +26,11 @@ else{
         $sql = "INSERT INTO Customers (email, password) VALUES ('$email', '$password1')";
         if(mysqli_query($link, $sql)){
             echo '<script>alert("Account registered successfully.")
-              window.location.href="login.php";          
+              window.location.href="../login.php";          
               </script>';
         } else{
             echo '<script>alert("Email already registered.");
-              window.location.href="signup.php";          
+              window.location.href="../signup.php";          
               </script>';
         }
     }

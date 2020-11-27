@@ -19,7 +19,7 @@ $imageurl = mysqli_real_escape_string($link, $_REQUEST['imgurl']);
 // Attempt insert query execution
 $sql = "UPDATE Products SET author='$author', title='$title', price='$price', releaseyear='$releaseyear', summary='$summary', imgurl='$imageurl' WHERE isbn='$isbn'";
 if(mysqli_query($link, $sql)){
-    echo "Records added successfully.";
+    echo "Records updated successfully.";
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
