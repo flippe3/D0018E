@@ -66,7 +66,10 @@ print_r($_SESSION);
 		 if ($imageurl== "images/"){
 			 $imageurl = "images/default.jpg";
 		 }
-	 echo
+
+         $add_button = "location.href='server/add_to_cart.php';";
+         
+         echo
 	 "<tr id='entries'>
 	<td><img id='table_image' src=$imageurl></td>
 	<td>{$row['title']}</td>
@@ -76,7 +79,7 @@ print_r($_SESSION);
 	<td>{$row['bookquantity']}</td>
 	<td>{$row['releaseyear']}</td>
 	<td>{$row['summary']}</td>
-	<td><button id='btn_add_cart' type='button'>Add to cart</button></td>
+	<td><button id='btn_add_cart' type='button' onclick='$add_button'>Add to cart</button></td>
 		</tr>\n";}
 	  ?>
 	  </table>

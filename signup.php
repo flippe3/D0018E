@@ -10,7 +10,6 @@
   </div>
  
   <form method="post" action="server/create_account.php">
-   <?php include('errors.php'); ?>
    <div class="input-group">
      <label>Email</label>
      <input type="email" name="email" value="<?php echo $email; ?>">

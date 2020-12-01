@@ -25,6 +25,11 @@ else{
         // Attempt insert query execution
         $sql = "INSERT INTO Customers (email, password) VALUES ('$email', '$password1')";
         if(mysqli_query($link, $sql)){
+            $get_customerid = mysqli_fetch_assoc(mysqli_query($link, "SELECT customerid FROM Customers where email='$email'")) or die(mysqli_error($link));
+            $customerid = $get_customerid["customerid"];
+            $create_order = "INSERT INTO Orders (customerid) VALUES ('$customerid')";
+            mysqli_query($link, $create_order);
+
             echo '<script>alert("Account registered successfully.")
               window.location.href="../login.php";          
               </script>';
