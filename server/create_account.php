@@ -18,7 +18,7 @@ if ($email == '' || $password1 == ''){
 else{
     if($password1 != $password2){
         echo '<script>alert("Passwords do not match");
-          window.location.href="signup.php";
+          window.location.href="../signup.php";
           </script>';
     }
     else{

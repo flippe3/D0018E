@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION["admin"]) === false){
+    echo '<script>alert("You aint no admin boy");window.location.href="../admin_login.php"</script>';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
