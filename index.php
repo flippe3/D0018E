@@ -68,6 +68,7 @@ print_r($_SESSION);
 		 }
 
          $add_button = "location.href='server/add_to_cart.php';";
+         $isbn = "{$row['isbn']}";
          
          echo
 	 "<tr id='entries'>
@@ -79,7 +80,7 @@ print_r($_SESSION);
 	<td>{$row['bookquantity']}</td>
 	<td>{$row['releaseyear']}</td>
 	<td>{$row['summary']}</td>
-	<td><button id='btn_add_cart' type='button' onclick='$add_button'>Add to cart</button></td>
+	<td><button id='btn_add_cart' type='button' onclick=$add_button name=$isbn>Add to cart</button></td>
 		</tr>\n";}
 	  ?>
 	  </table>

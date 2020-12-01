@@ -50,10 +50,10 @@ print_r($_SESSION);
 	</tr>
 
     <?php
-          $temp = $_SESSION['userID'];
-          $get_orderid = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT orderid FROM Orders where (customerid='$temp' and active=1)")) or die(mysqli_error($link));
-          $temp2 = $get_orderid['orderid'];
-          $get_orderlist = mysqli_query($dbconnect, "SELECT * FROM Orderlist where orderid='$temp2'") or die(mysqli_error($link));
+          $userid = $_SESSION['userID'];
+          $get_orderid = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT orderid FROM Orders where (customerid='$userid' and active=1)")) or die(mysqli_error($link));
+          $orderid = $get_orderid['orderid'];
+          $get_orderlist = mysqli_query($dbconnect, "SELECT * FROM Orderlist where orderid='$orderid'") or die(mysqli_error($link));
           
 
 
