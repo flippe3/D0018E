@@ -8,11 +8,6 @@
     font-family: "titles";
     src: url("../fonts/unbutton.ttf");
 }
-@font-face
-{
-    font-family: "ch";
-    src: url("../fonts/ch.ttf");
-}
 #wrapper
 {
     background-color: #42C1F0;
@@ -38,7 +33,7 @@ header{
     background-color: #98959B;
 }
 h2 {
-    color: #050401;
+    color: #FFF;
     margin: 0px;
     font-family: "titles";
     font-size: 50px;
@@ -93,4 +88,13 @@ button:hover {
     height: 150px;
     display: block;
     margin: 5px auto 5px auto;
+}
+
+#order{
+    width: 100%;
+    margin: 2% 2% 0% 2%;
+    background-color: #FECBC2;
+    border: 5px solid #000;
+    border-radius: 5px;
+    font-size:25px;
 }

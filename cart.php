@@ -6,6 +6,7 @@ print_r($_SESSION);
 <html>
   <head>
 	<link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <a href='index.php'><header style="color: magenta;">Shopping cart</header></a>
  <?php
@@ -36,7 +37,7 @@ print_r($_SESSION);
 	  }
 
 	  ?>
-	  
+      <div id="tablediv">
 	  <table border="1" align="left">
 	<tr id="head_column">
 	  <td>Image</td>
@@ -80,6 +81,23 @@ print_r($_SESSION);
 		</tr>\n";}
 	  ?>
 	  </table>
-	</div>
-  </body>
+  </div>
+  <div class="Orderform">
+   <h1 class="header">Order Form</h1> 
+  <form method="post" action="server/order.php">
+   <div class="input-group">
+     <label>Address</label>
+     <input type="text" name="address">
+   </div>
+   <div class="input-group">
+     <label>Zip</label>
+     <input type="text" name="zip">
+   </div>
+   <div class="input-group">
+     <button type="submit" class="btn" name="reg_user">Place Order</button>
+   </div>
+  </form>
+</div>        
+</div>
+</body>
 </html>
