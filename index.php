@@ -67,12 +67,13 @@ print_r($_SESSION);
 			 $imageurl = "images/default.jpg";
 		 }
 
-         $add_button = "location.href='server/add_to_cart.php';";
+         //$add_button = "location.href='server/add_to_cart.php';";
          $isbn = "{$row['isbn']}";
          
          echo
-	 "<tr id='entries'>
-	<td><img id='table_image' src=$imageurl></td>
+	 "
+    <tr id='entries'>
+    <td><img id='table_image' src=$imageurl></td>
 	<td>{$row['title']}</td>
 	<td>{$row['price']} kr</td>
 	<td>{$row['author']}</td>
@@ -80,8 +81,10 @@ print_r($_SESSION);
 	<td>{$row['bookquantity']}</td>
 	<td>{$row['releaseyear']}</td>
 	<td>{$row['summary']}</td>
-	<td><button id='btn_add_cart' type='button' onclick=$add_button name=$isbn>Add to cart</button></td>
-		</tr>\n";}
+    <form method='POST' action='server/add_to_cart.php'>
+	<td><button id='btn_add_cart' type='submit' value=$isbn name='isbn'>Add to cart</button></td>
+    </form>
+	</tr>\n";}
 	  ?>
 	  </table>
 	</div>

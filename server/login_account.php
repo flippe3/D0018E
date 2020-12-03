@@ -23,7 +23,6 @@ if($pass['password'] == $password && $password != ''){
     $get = mysqli_fetch_assoc($getting_id); 
     $_SESSION["login_status"] = true;
     $_SESSION["userID"] = $get["customerid"];
-    
     echo '<script>alert("Login Successful");window.location.href="../index.php"</script>';
 }
 else{
