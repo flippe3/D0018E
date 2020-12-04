@@ -1,6 +1,5 @@
 <?php
 session_start();
-print_r($_SESSION);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -10,7 +9,8 @@ print_r($_SESSION);
   </head>
   <a href='index.php'><header style="color: green;">Reviews</header></a>
  <?php
-   if($_SESSION["login_status"] === true){
+                    
+  if($_SESSION["login_status"] === true){
        echo <<<_END
        <div id="miniheader">
        <button id='btn_miniheader' onclick="location.href='server/logout_account.php';" type='button'>Logout</button>
@@ -20,7 +20,13 @@ print_r($_SESSION);
        _END;
        }
    else{
-       echo '<script>alert("Login bro");window.location.href="../login.php"</script>';
+       echo <<<_END
+       <div id="miniheader">
+       <button id='btn_miniheader' onclick="location.href='login.php';" type='button'>Login</button>
+       <button id='btn_miniheader' onclick="location.href='signup.php';" type='button'>Sign up</button>
+       <button id='btn_miniheader' onclick="location.href='admin_login.php';" type='button'>Admin</button>
+       </div>
+       _END;
 }
  ?>
  <body>

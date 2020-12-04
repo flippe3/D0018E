@@ -14,6 +14,7 @@ print_r($_SESSION);
        <div id="miniheader">
        <button id='btn_miniheader' onclick="location.href='server/logout_account.php';" type='button'>Logout</button>
        <button id='btn_miniheader' onclick="location.href='cart.php';" type='button'>Cart</button>
+       <button id='btn_miniheader' onclick="location.href='order_history.php';" type='button'>Order History</button>
        </div>
        _END;
        }
