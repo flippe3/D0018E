@@ -116,7 +116,7 @@ print_r($_SESSION);
    </div>
    <div class="input-group">
      <label>Zip</label>
-     <input type="text" name="zip">
+     <input type="number" name="zip">
    </div>
    <div class="input-group">
      <button type="submit" class="btn" name="reg_user">Place Order</button>

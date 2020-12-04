@@ -83,12 +83,10 @@ $orderid = $get_orderid['orderid'];
 	<td>{$get_book['title']}</td>
 	<td>{$book_price} kr</td>
 	<td>{$get_quantity ['quantity']}</td>
-    <form method='POST' action='server/remove_from_cart.php'>
+    <form method='POST' action='review.php'>
 	<td><button id='btn_grade' type='submit' value='$isbn' name='isbn'>Grade</button></td>
     </form>
-    </tr>\n";}
-
-}
+    </tr>\n";}}
 ?>
 
   </table>
