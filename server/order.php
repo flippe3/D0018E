@@ -22,25 +22,41 @@ $orderid = $get_orderid['orderid'];
 mysqli_query($link, "START TRANSACTION");
 
 $get_orderlist = mysqli_query($link, "SELECT isbn,quantity FROM Orderlist where (orderid='$orderid')");
+$can_order = true;
+
 while($book = mysqli_fetch_array($get_orderlist)){
-    $isbn = $book['isbn'];
-    $get_price = mysqli_fetch_assoc(mysqli_query($link, "SELECT price FROM Products where isbn='$isbn'")) or die(mysqli_error($link));
-    $get_total_price = $get_price['price'] * $book['quantity'];
-    mysqli_query($link, "UPDATE Orderlist SET price='$get_total_price'  WHERE (orderid='$orderid' and isbn='$isbn')") or die(mysqli_error($link));
     $quantity = $book['quantity'];
-    mysqli_query($link, "UPDATE Products SET bookquantity=bookquantity-'$quantity'  WHERE (isbn='$isbn')") or die(mysqli_error($link));
+    $isbn = $book['isbn'];
+    
+    $storage_quantity = mysqli_fetch_assoc(mysqli_query($link, "SELECT bookquantity FROM Products where isbn='$isbn'")) or die(mysqli_error($link));
+    if ($quantity <= $storage_quantity['bookquantity']){
+        mysqli_query($link, "UPDATE Products SET bookquantity=bookquantity-'$quantity'  WHERE (isbn='$isbn')") or die(mysqli_error($link));
+    }
+    else{
+        $can_order = false;
+        echo '<script>alert("Your order could not be placed, out of stock");window.location.href="../index.php"</script>';
+    }
 }
 
-$currentdate = date('Y-m-d');
-mysqli_query($link, "UPDATE Orders SET transactiondate='$currentdate',address='$address',zip='$zip',active=0  WHERE (orderid='$orderid')") or die(mysqli_error($link));
+if($can_order)
+{
+    while($book = mysqli_fetch_array($get_orderlist)){
+        $isbn = $book['isbn'];
+        $get_price = mysqli_fetch_assoc(mysqli_query($link, "SELECT price FROM Products where isbn='$isbn'")) or die(mysqli_error($link));
+        $get_total_price = $get_price['price'] * $book['quantity'];
+        mysqli_query($link, "UPDATE Orderlist SET price='$get_total_price'  WHERE (orderid='$orderid' and isbn='$isbn')") or die(mysqli_error($link));
+    }
 
-$create_order = "INSERT INTO Orders (customerid) VALUES ('$userid')";
-mysqli_query($link, $create_order);
+    $currentdate = date('Y-m-d');
+    mysqli_query($link, "UPDATE Orders SET transactiondate='$currentdate',address='$address',zip='$zip',active=0  WHERE (orderid='$orderid')") or die(mysqli_error($link));
 
-mysqli_query($link, "COMMIT");
+    $create_order = "INSERT INTO Orders (customerid) VALUES ('$userid')";
+    mysqli_query($link, $create_order);
 
-echo '<script>alert("Your order has been added");window.location.href="../index.php"</script>';
+    mysqli_query($link, "COMMIT");
 
+    echo '<script>alert("Your order has been added");window.location.href="../index.php"</script>';
+}
 // Close connection
 mysqli_close($link);
 ?>
