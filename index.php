@@ -80,7 +80,9 @@ print_r($_SESSION);
 	<td>{$row['isbn']}</td>
 	<td>{$row['bookquantity']}</td>
 	<td>{$row['releaseyear']}</td>
-	<td>{$row['summary']}</td>
+    <form method='POST' action='list_reviews.php'>
+	<td><button id='btn_add_cart' type='submit' value=$isbn name='isbn'>Review</button></td>
+    </form>
     <form method='POST' action='server/add_to_cart.php'>
 	<td><button id='btn_add_cart' type='submit' value=$isbn name='isbn'>Add to cart</button></td>
     </form>
