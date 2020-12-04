@@ -49,19 +49,22 @@ print_r($_SESSION);
 	  <td>Quantity</td>
 	  <td>Remove from cart</td>
 	</tr>
-
     <?php
+
           $userid = $_SESSION['userID'];
           $get_orderid = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT orderid FROM Orders where (customerid='$userid' and active=1)")) or die(mysqli_error($link));
           $orderid = $get_orderid['orderid'];
           $get_orderlist = mysqli_query($dbconnect, "SELECT * FROM Orderlist where orderid='$orderid'") or die(mysqli_error($link));
-
+          $total_price = 0;
+          $total_quantity = 0;
 
 	 while ($row = mysqli_fetch_array($get_orderlist)) {
          $isbn = $row['isbn'];
          $get_book = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT * FROM Products where isbn='$isbn'")) or die(mysqli_error($link));
          $get_quantity = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT quantity FROM Orderlist where (isbn='$isbn' and orderid='$orderid')")) or die(mysqli_error($link));
-
+         $book_price = $get_book['price'] * $get_quantity['quantity'];
+         $total_price = $total_price + $book_price;
+         $total_quantity = $total_quantity + $get_quantity['quantity'];
          $imageurl = "images/{$get_book['imgurl']}";         
 		 if ($imageurl== "images/"){
 			 $imageurl = "images/default.jpg";
@@ -72,15 +75,37 @@ print_r($_SESSION);
 	<td>{$get_book['isbn']}</td>
 	<td>{$get_book['title']}</td>
 	<td>{$get_book['author']}</td>
-	<td>{$get_book['price']} kr</td>
+	<td>{$book_price} kr</td>
 	<td>{$get_book['releaseyear']}</td>
 	<td>{$get_quantity ['quantity']}</td>
     <form method='POST' action='server/remove_from_cart.php'>
 	<td><button id='btn_remove' type='submit' value='$isbn' name='isbn'>Remove</button></td>
     </form>
-		</tr>\n";}
-	  ?>
-	  </table>
+    </tr>\n";}
+    echo "
+	<tr id='footer_column'>
+	  <td></td>
+	  <td></td>
+	  <td></td>
+	  <td></td>
+	  <td>Sum</td>
+	  <td></td>
+	  <td>Total Quantity</td>
+	  <td></td>
+	</tr>
+   <tr id='footer_column'>
+	  <td></td>
+	  <td></td>
+	  <td></td>
+	  <td></td>
+	  <td>{$total_price}</td>
+	  <td></td>
+	  <td>{$total_quantity}</td>
+	  <td></td>
+	</tr>";
+   ?>
+
+  </table>
   </div>
   <div class="Orderform">
    <h1 class="header">Order Form</h1> 
