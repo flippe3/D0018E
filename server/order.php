@@ -26,13 +26,12 @@ while($book = mysqli_fetch_array($get_orderlist)){
     $isbn = $book['isbn'];
     $get_price = mysqli_fetch_assoc(mysqli_query($link, "SELECT price FROM Products where isbn='$isbn'")) or die(mysqli_error($link));
     $get_total_price = $get_price['price'] * $book['quantity'];
-    echo $get_total_price;
     mysqli_query($link, "UPDATE Orderlist SET price='$get_total_price'  WHERE (orderid='$orderid' and isbn='$isbn')") or die(mysqli_error($link));
+    $quantity = $book['quantity'];
+    mysqli_query($link, "UPDATE Products SET bookquantity=bookquantity-'$quantity'  WHERE (isbn='$isbn')") or die(mysqli_error($link));
 }
 
-#UPDATE table SET date = GETDATE();
 $currentdate = date('Y-m-d');
-echo $temp;
 mysqli_query($link, "UPDATE Orders SET transactiondate='$currentdate',address='$address',zip='$zip',active=0  WHERE (orderid='$orderid')") or die(mysqli_error($link));
 
 $create_order = "INSERT INTO Orders (customerid) VALUES ('$userid')";

@@ -1,6 +1,5 @@
 <?php
 session_start();
-print_r($_SESSION);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -70,7 +69,6 @@ print_r($_SESSION);
 
          //$add_button = "location.href='server/add_to_cart.php';";
          $isbn = "{$row['isbn']}";
-         
          echo
 	 "
     <tr id='entries'>

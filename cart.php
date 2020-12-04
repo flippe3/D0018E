@@ -1,6 +1,5 @@
 <?php
 session_start();
-print_r($_SESSION);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -98,7 +97,7 @@ print_r($_SESSION);
 	  <td></td>
 	  <td></td>
 	  <td></td>
-	  <td>{$total_price}</td>
+	  <td>{$total_price} kr</td>
 	  <td></td>
 	  <td>{$total_quantity}</td>
 	  <td></td>
