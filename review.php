@@ -19,7 +19,10 @@
     </textarea>
    </div>
    <div class="input-group">
-    <button type="submit" class="btn" name="submit_review">Submit Review</button>
+<?php
+$temp = $_REQUEST['isbn'];
+echo "<button type='submit' class='btn' name='$temp'>Submit Review</button>";
+?>
    </div>
   </form>
 </body>
