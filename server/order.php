@@ -16,14 +16,25 @@ $address = mysqli_real_escape_string($link, $_REQUEST['address']);
 $zip = mysqli_real_escape_string($link, $_REQUEST['zip']);
 $userid = $_SESSION['userID'];
 
+
 $get_orderid = mysqli_fetch_assoc(mysqli_query($link, "SELECT orderid FROM Orders where (customerid='$userid' and active=1)")) or die(mysqli_error($link));
 $orderid = $get_orderid['orderid'];
+
 
 mysqli_query($link, "START TRANSACTION");
 
 $get_orderlist = mysqli_query($link, "SELECT isbn,quantity FROM Orderlist where (orderid='$orderid')");
 $get_orderlist2 = mysqli_query($link, "SELECT isbn,quantity FROM Orderlist where (orderid='$orderid')");
 $can_order = true;
+
+if($address == '' and $zip == ''){
+    $can_order = false;
+    echo '<script>alert("You need an adress and a zip");window.location.href="../cart.php"</script>';
+}
+if(mysqli_num_rows($get_orderlist) == 0){
+    $can_order = false;
+    echo '<script>alert("Your cart is empty");window.location.href="../cart.php"</script>';    
+}
 
 while($book = mysqli_fetch_array($get_orderlist)){
     $quantity = $book['quantity'];
