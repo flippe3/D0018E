@@ -61,7 +61,24 @@ if(isset($_SESSION["admin"]) === false){
     <div class='input-group'>
     <p>
         <label for="isbn">ISBN</label>
-        <input type="text" name="isbn" id="isbn">
+<?php
+$link = mysqli_connect("localhost", "root", "hackerman", "ecommerce");
+
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
+$sql = "SELECT isbn from Products";
+$query = mysqli_query($link, $sql) or die(mysqli_error($link));
+
+echo '<select name="isbn">';
+
+while ($row = mysqli_fetch_array($query)) {
+    echo "<option name='isbn' id='isbn' value=".$row['isbn'].">" . $row['isbn'] . "</option>";
+}
+
+echo '</select>';
+?>
     </p>
     </div>
     <input type="submit" value="Submit" class='submit_btn'>
@@ -74,7 +91,19 @@ if(isset($_SESSION["admin"]) === false){
     <div class='input-group'>
     <p>
         <label for="isbn">ISBN</label>
-        <input type="text" name="isbn" id="isbn">
+<?php
+
+$get_books = "SELECT * from Products";
+$query2 = mysqli_query($link, $get_books) or die(mysqli_error($link));
+
+echo '<select name="isbn">';
+
+while ($row = mysqli_fetch_array($query2)) {
+    echo "<option name='isbn' id='isbn' value=".$row['isbn'].">" . $row['isbn'] . "</option>";
+}
+
+echo '</select>';
+?>              
     </p>
     <p>
         <label for="author">Author</label>

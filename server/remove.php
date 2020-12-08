@@ -11,12 +11,22 @@ $isbn = mysqli_real_escape_string($link, $_REQUEST['isbn']);
 
 // Attempt insert query execution
 $sql = "DELETE FROM Products WHERE ISBN='$isbn'";
-if(mysqli_query($link, $sql)){
-    echo "Records removed successfully.";
+$delete_reviews = "DELETE FROM Reviews where ISBN='$isbn'";
+
+mysqli_query($link, "START TRANSACTION");
+
+if(mysqli_query($link, $delete_reviews)){
+    if(mysqli_query($link, $sql)){
+        echo "Records removed successfully.";    
+    }
+    else{
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+    }
 } else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+    echo "ERROR: Could not able to execute $delete_reviews. " . mysqli_error($link);
 }
  
+mysqli_query($link, "COMMIT");
 // Close connection
 mysqli_close($link);
 ?>

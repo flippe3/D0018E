@@ -22,6 +22,7 @@ $orderid = $get_orderid['orderid'];
 mysqli_query($link, "START TRANSACTION");
 
 $get_orderlist = mysqli_query($link, "SELECT isbn,quantity FROM Orderlist where (orderid='$orderid')");
+$get_orderlist2 = mysqli_query($link, "SELECT isbn,quantity FROM Orderlist where (orderid='$orderid')");
 $can_order = true;
 
 while($book = mysqli_fetch_array($get_orderlist)){
@@ -40,7 +41,7 @@ while($book = mysqli_fetch_array($get_orderlist)){
 
 if($can_order)
 {
-    while($book = mysqli_fetch_array($get_orderlist)){
+    while($book = mysqli_fetch_array($get_orderlist2)){
         $isbn = $book['isbn'];
         $get_price = mysqli_fetch_assoc(mysqli_query($link, "SELECT price FROM Products where isbn='$isbn'")) or die(mysqli_error($link));
         $get_total_price = $get_price['price'] * $book['quantity'];
@@ -53,10 +54,10 @@ if($can_order)
     $create_order = "INSERT INTO Orders (customerid) VALUES ('$userid')";
     mysqli_query($link, $create_order);
 
-    mysqli_query($link, "COMMIT");
 
     echo '<script>alert("Your order has been added");window.location.href="../index.php"</script>';
 }
+mysqli_query($link, "COMMIT");
 // Close connection
 mysqli_close($link);
 ?>

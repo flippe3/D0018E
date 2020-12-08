@@ -56,14 +56,28 @@ $get_book = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT title,summary FR
 	</tr>
     <?php
           $get_reviews = mysqli_query($dbconnect, "SELECT * FROM Reviews where isbn='$isbn'");
-  	 while ($row = mysqli_fetch_array($get_reviews)) {
-         $grade = $row['grading'];
+$total_grades = 0;
+$average_grades = 0;
+while ($row = mysqli_fetch_array($get_reviews)) {
+    $total_grade = $total_grade + 1;
+    $average_grades = $average_grades + $row['grading'];
+    $grade = $row['grading'];
          $review = $row['comment'];         
          echo
 	 "<tr id='entries'>
 	<td>{$grade}</td>
 	<td>{$review}</td>
     </tr>\n";}
+    $avg = round($average_grades / $total_grade, 2);
+    echo "
+	<tr id='footer_column'>
+	  <td>Average Grade</td>
+	  <td></td>
+	</tr>
+   <tr id='footer_column'>
+	  <td>{$avg}</td>
+	  <td></td>
+	</tr>";
 ?>
 
   </table>

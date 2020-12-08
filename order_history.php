@@ -52,24 +52,17 @@ session_start();
           $userid = $_SESSION['userID'];
 $fetch_order = mysqli_query($dbconnect, "SELECT orderid FROM Orders where (customerid='$userid' and active=0)") or die(mysqli_error($dbconnect));
 
-
 while($get_orderid = mysqli_fetch_array($fetch_order)){
-$orderid = $get_orderid['orderid'];
+    $orderid = $get_orderid['orderid'];
           $get_orderlist = mysqli_query($dbconnect, "SELECT * FROM Orderlist where orderid='$orderid'") or die(mysqli_error($dbconnect));
           
-          $total_price = 0;
-          $total_quantity = 0;
   	 while ($row = mysqli_fetch_array($get_orderlist)) {
          $date = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT transactiondate FROM Orders where orderid='$orderid'")) or die(mysqli_error($dbconnect));
          $printdate = $date['transactiondate'];
-         
 
          $isbn = $row['isbn'];
          $get_book = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT * FROM Products where isbn='$isbn'")) or die(mysqli_error($dbconnect));
-         $get_quantity = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT quantity FROM Orderlist where (isbn='$isbn' and orderid='$orderid')")) or die(mysqli_error($dbconnect));
-         $book_price = $get_book['price'] * $get_quantity['quantity'];
-         $total_price = $total_price + $book_price;
-         $total_quantity = $total_quantity + $get_quantity['quantity'];
+
          $imageurl = "images/{$get_book['imgurl']}";         
 		 if ($imageurl== "images/"){
 			 $imageurl = "images/default.jpg";
@@ -78,15 +71,14 @@ $orderid = $get_orderid['orderid'];
 	 "<tr id='entries'>
 	<td>{$orderid}</td>
 	<td>{$printdate}</td>
-	<td>{$get_book['isbn']}</td>
+	<td>{$row['isbn']}</td>
 	<td>{$get_book['title']}</td>
-	<td>{$book_price} kr</td>
-	<td>{$get_quantity ['quantity']}</td>
+	<td>{$row['price']} kr</td>
+	<td>{$row ['quantity']}</td>
     <form method='POST' action='review.php'>
 	<td><button id='btn_grade' type='submit' value='$isbn' name='isbn'>Grade</button></td>
     </form>
-    </tr>\n";}}
-?>
+    </tr>\n";}}?>
 
   </table>
   </div>
