@@ -9,7 +9,6 @@
    <h2>Admin Login</h2>
   </div>  
   <form method="post" action="server/admin_account.php">
-   <?php include('errors.php'); ?>
    <div class="input-group">
     <label>Email</label>
     <input type="email" name="email" >
