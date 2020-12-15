@@ -50,24 +50,40 @@ session_start();
 	</tr>
     <?php
 
+          // Fetch the orderid
           $userid = $_SESSION['userID'];
           $get_orderid = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT orderid FROM Orders where (customerid='$userid' and active=1)")) or die(mysqli_error($link));
           $orderid = $get_orderid['orderid'];
+
+          //Get everything from orderlist and initiate totalprice and totalquantity
           $get_orderlist = mysqli_query($dbconnect, "SELECT * FROM Orderlist where orderid='$orderid'") or die(mysqli_error($link));
           $total_price = 0;
           $total_quantity = 0;
 
+
+     // Iterate through every book in the orderlist
 	 while ($row = mysqli_fetch_array($get_orderlist)) {
          $isbn = $row['isbn'];
+
+         // Get the book from Products
          $get_book = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT * FROM Products where isbn='$isbn'")) or die(mysqli_error($link));
+
          $get_quantity = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT quantity FROM Orderlist where (isbn='$isbn' and orderid='$orderid')")) or die(mysqli_error($link));
+
+         // Get the total bookprice
          $book_price = $get_book['price'] * $get_quantity['quantity'];
+
+         // This adds to the total price and total quantity for the whole cart
          $total_price = $total_price + $book_price;
          $total_quantity = $total_quantity + $get_quantity['quantity'];
+
+         // Get the imageurl
          $imageurl = "images/{$get_book['imgurl']}";         
 		 if ($imageurl== "images/"){
 			 $imageurl = "images/default.jpg";
 		 }
+
+         // Prints the entries
          echo
 	 "<tr id='entries'>
 	<td><img id='table_image' src=$imageurl></td>

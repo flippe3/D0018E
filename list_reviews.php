@@ -41,8 +41,10 @@ session_start();
 	   if ($dbconnect->connect_error) {
            die("Database connection failed: " . $dbconnect->connect_error);
 	  }
+
+      // Get the correct data to print the title and summary. 
       $isbn = $_REQUEST['isbn'];
-$get_book = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT title,summary FROM Products WHERE isbn='$isbn'"));
+      $get_book = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT title,summary FROM Products WHERE isbn='$isbn'"));
       $title = $get_book['title'];
       $summary = $get_book['summary'];
       echo "<h3>$title</h3>";
@@ -55,30 +57,33 @@ $get_book = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT title,summary FR
 	  <td>Reviews</td>
 	</tr>
     <?php
-          $get_reviews = mysqli_query($dbconnect, "SELECT * FROM Reviews where isbn='$isbn'");
-$total_grades = 0;
-$average_grades = 0;
-while ($row = mysqli_fetch_array($get_reviews)) {
-    $total_grade = $total_grade + 1;
-    $average_grades = $average_grades + $row['grading'];
-    $grade = $row['grading'];
-         $review = $row['comment'];         
-         echo
-	 "<tr id='entries'>
-	<td>{$grade}</td>
-	<td>{$review}</td>
-    </tr>\n";}
-    $avg = round($average_grades / $total_grade, 2);
-    echo "
+	$get_reviews = mysqli_query($dbconnect, "SELECT * FROM Reviews where isbn='$isbn'");
+	$total_grades = 0;
+	$average_grades = 0;
+	while ($row = mysqli_fetch_array($get_reviews)) {
+		// Add to the total grade to be able to make an average
+		$total_grade = $total_grade + 1;
+    		$average_grades = $average_grades + $row['grading'];
+    		$grade = $row['grading'];
+       		$review = $row['comment'];         
+         	echo
+	 	"<tr id='entries'>
+		<td>{$grade}</td>
+		<td>{$review}</td>
+		</tr>\n";
+	}
+	// Print the average grade
+	$avg = round($average_grades / $total_grade, 2);
+    	echo "
 	<tr id='footer_column'>
-	  <td>Average Grade</td>
-	  <td></td>
+	 <td>Average Grade</td>
+	 <td></td>
 	</tr>
-   <tr id='footer_column'>
-	  <td>{$avg}</td>
-	  <td></td>
+   	<tr id='footer_column'>
+	 <td>{$avg}</td>
+	 <td></td>
 	</tr>";
-?>
+	?>
 
   </table>
   </div>

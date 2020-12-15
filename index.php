@@ -8,6 +8,9 @@ session_start();
   </head>
   <a href='index.php'><header>Amazon V2</header></a>
  <?php
+
+   // Print the right menu depending on login status 
+
    if($_SESSION["login_status"] === true){
        echo <<<_END
        <div id="miniheader">
@@ -67,7 +70,6 @@ session_start();
 			 $imageurl = "images/default.jpg";
 		 }
 
-         //$add_button = "location.href='server/add_to_cart.php';";
          $isbn = "{$row['isbn']}";
          echo
 	 "
