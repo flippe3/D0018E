@@ -19,7 +19,7 @@ session_start();
        _END;
        }
    else{
-       echo '<script>alert("Login bro");window.location.href="../login.php"</script>';
+       echo '<script>alert("Login bro");window.location.href="../login.html"</script>';
 }
  ?>
  <body>

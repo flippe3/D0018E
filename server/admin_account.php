@@ -27,7 +27,7 @@ if($pass['password'] == $password && $password != ''){
     echo '<script>alert("Well done hackerboy");window.location.href="../1337.php"</script>';
 }
 else{
-    echo '<script>alert("Wrong password or email, noob");window.location.href="../admin_login.php"</script>';
+    echo '<script>alert("Wrong password or email, noob");window.location.href="../admin_login.html"</script>';
 }
 if(!$query){
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);

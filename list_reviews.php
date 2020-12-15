@@ -22,9 +22,9 @@ session_start();
    else{
        echo <<<_END
        <div id="miniheader">
-       <button id='btn_miniheader' onclick="location.href='login.php';" type='button'>Login</button>
+       <button id='btn_miniheader' onclick="location.href='login.html';" type='button'>Login</button>
        <button id='btn_miniheader' onclick="location.href='signup.php';" type='button'>Sign up</button>
-       <button id='btn_miniheader' onclick="location.href='admin_login.php';" type='button'>Admin</button>
+       <button id='btn_miniheader' onclick="location.href='admin_login.html';" type='button'>Admin</button>
        </div>
        _END;
 }

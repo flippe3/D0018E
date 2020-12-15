@@ -31,7 +31,7 @@ else{
             mysqli_query($link, $create_order);
 
             echo '<script>alert("Account registered successfully.")
-              window.location.href="../login.php";          
+              window.location.href="../login.html";          
               </script>';
         } else{
             echo '<script>alert("Email already registered.");
