@@ -49,21 +49,22 @@ session_start();
 	</tr>
     <?php
 
-          $userid = $_SESSION['userID'];
-$fetch_order = mysqli_query($dbconnect, "SELECT orderid FROM Orders where (customerid='$userid' and active=0)") or die(mysqli_error($dbconnect));
+        $userid = $_SESSION['userID'];
+	$fetch_order = mysqli_query($dbconnect, "SELECT orderid FROM Orders where (customerid='$userid' and active=0)") or die(mysqli_error($dbconnect));
 
-while($get_orderid = mysqli_fetch_array($fetch_order)){
-    $orderid = $get_orderid['orderid'];
-          $get_orderlist = mysqli_query($dbconnect, "SELECT * FROM Orderlist where orderid='$orderid'") or die(mysqli_error($dbconnect));
+	while($get_orderid = mysqli_fetch_array($fetch_order)){
+    	$orderid = $get_orderid['orderid'];
+        $get_orderlist = mysqli_query($dbconnect, "SELECT * FROM Orderlist where orderid='$orderid'") or die(mysqli_error($dbconnect));
           
-  	 while ($row = mysqli_fetch_array($get_orderlist)) {
-         $date = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT transactiondate FROM Orders where orderid='$orderid'")) or die(mysqli_error($dbconnect));
-         $printdate = $date['transactiondate'];
+	// Iterates through each order in orderlist with the correct orderid and where active=0
+	while ($row = mysqli_fetch_array($get_orderlist)) {
+        $date = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT transactiondate FROM Orders where orderid='$orderid'")) or die(mysqli_error($dbconnect));
+        $printdate = $date['transactiondate'];
 
-         $isbn = $row['isbn'];
-         $get_book = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT * FROM Products where isbn='$isbn'")) or die(mysqli_error($dbconnect));
+        $isbn = $row['isbn'];
+        $get_book = mysqli_fetch_assoc(mysqli_query($dbconnect, "SELECT * FROM Products where isbn='$isbn'")) or die(mysqli_error($dbconnect));
 
-         $imageurl = "images/{$get_book['imgurl']}";         
+        $imageurl = "images/{$get_book['imgurl']}";         
 		 if ($imageurl== "images/"){
 			 $imageurl = "images/default.jpg";
 		 }

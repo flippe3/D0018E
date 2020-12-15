@@ -23,16 +23,19 @@ mysqli_query($link, "START TRANSACTION");
 $get_id_isbn = mysqli_fetch_assoc(mysqli_query($link, "SELECT isbn, orderid FROM Orderlist where (orderid='$orderid' and isbn='$isbn')"));
 $get_quantity = mysqli_fetch_assoc(mysqli_query($link, "SELECT bookquantity FROM Products where isbn='$isbn'"));
 
+// Check if the book is in stock and no previous entries of that book is in the cart
 if($get_id_isbn == '' and $get_quantity['bookquantity'] > 0){    
     mysqli_query($link, "INSERT INTO Orderlist (isbn, orderid) VALUES ('$isbn', '$orderid')");
 }
 else{
-    if($get_quantity['bookquantity'] > 0){
-        mysqli_query($link, "UPDATE Orderlist SET quantity=quantity + 1 WHERE (orderid='$orderid' and isbn='$isbn')") or die(mysqli_error($link));
-    }
-    else{
-        echo '<script>alert("Out of stock");window.location.href="../index.php"</script>';
-    }
+	// Here the book is already in the cart so now we only need to update quantity
+    	if($get_quantity['bookquantity'] > 0){
+        	mysqli_query($link, "UPDATE Orderlist SET quantity=quantity + 1 WHERE (orderid='$orderid' and isbn='$isbn')") or die(mysqli_error($link));
+	}
+	//Here the book is not in stock and therefore can not be added to the cart.
+    	else{
+        	echo '<script>alert("Out of stock");window.location.href="../index.php"</script>';
+    	}
 }
 echo '<script>window.location.href="../cart.php"</script>';
 

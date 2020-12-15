@@ -21,9 +21,7 @@ mysqli_query($link, "START TRANSACTION");
 $get_orderid = mysqli_fetch_assoc(mysqli_query($link, "SELECT orderid FROM Orders where (customerid='$userid' and active=1)")) or die(mysqli_error($link));
 $orderid = $get_orderid['orderid'];
 
-$get_quantity = mysqli_fetch_assoc(mysqli_query($link, "SELECT quantity FROM Orderlist where (orderid='$orderid' and isbn='$isbn')"));
-
-           
+$get_quantity = mysqli_fetch_assoc(mysqli_query($link, "SELECT quantity FROM Orderlist where (orderid='$orderid' and isbn='$isbn')"));           
 
 if($get_quantity['quantity'] == 1){
     mysqli_query($link, "DELETE FROM Orderlist WHERE (orderid='$orderid' and isbn='$isbn')") or die(mysqli_error($link));
